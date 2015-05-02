@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<section class="form-group">
+		<%= form_for @movie do |f|  %>
+			<div>
+				<%= f.label :title  %>
+				<%= f.text_field :title, class: "form-control"  %>
+			</div>
+			<div>
+				<%= f.label :rating  %>
+				<%= f.text_field :rating, class: "form-control"  %>
+			</div>
+			<div>
+				<%= f.label :year  %>
+				<%= f.text_field :year, class: "form-control"  %>
+			</div>
+			<div>
+				<%= f.label :description  %>
+				<%= f.text_area :description, class: "form-control"  %>
+			</div>
+			<br>
+			<%= f.submit "Submit", class: "btn btn-submit" %>
+			<% end %>
+	</section>
+</div>

@@ -1,0 +1,47 @@
+<div class="container-fluid">
+	<section>
+    <h1><%= @movie.title %></h1>
+    <p><strong>Rating:</strong> <%= @movie.rating %></p>
+    <p><strong>Year released:</strong> <%= @movie.year %></p>
+    <p><strong>Description:</strong> <%= @movie.description %></p>
+	</section>
+	<section>
+    <h2>Reviews</h2>
+
+  <div><p><strong>Average Score: </strong><%= @movie.average_score %></p></div>
+
+    <% @movie.reviews.each do |review| %>
+        <div>
+            <h3>Review #<%= @movie.reviews.index(review) + 1 %></h3>
+            <p><strong>Score:</strong> <%= review.score %></p>
+            <p><strong>The verdict:</strong> <%= review.body %></p>
+        </div>
+    <% end %>
+	</section> 
+	<div>
+		<%= link_to "Movie List", movies_path, class: "btn btn-primary"  %>
+		<%= link_to "Edit Movie", "#", class: "btn btn-primary" %>
+		<%= link_to "Delete movie", "#", class: "btn btn-primary" %>
+	</div>
+
+	<section>
+    <h2>Add a new review!</h2>
+    <%= form_for [@movie, @review] do |f| %> 
+
+        <div>
+            <%= f.label :body, "Review" %> 
+            <%= f.text_area :body %>
+        </div>
+
+        <div>
+            <%= f.label :score %> 
+            <%= f.number_field :score %>
+        </div>
+        <br>
+        <%= f.submit "Submit", class: "btn btn-submit" %>
+
+    <% end %>
+</section>
+
+
+</div>

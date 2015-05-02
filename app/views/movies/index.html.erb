@@ -1,0 +1,12 @@
+<div class="container-fluid">
+	<div>
+	<div class="jumbotron">
+		<h1 class="masthead">Movie Reviews</h1>
+	</div>
+		<ul>
+		<% @movies.each do |movie| %>
+			<li><strong><%= link_to "#{movie.title}", movie %></strong> | <%= movie.year  %></li>
+		<% end %>
+		</ul>
+	</div>
+</div>
